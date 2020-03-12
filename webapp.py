@@ -14,6 +14,14 @@ app = Flask(__name__)
 
 app.debug = True #Change this to False for production
 
+connection_string = os.environ["MONGO_CONNECTION_STRING"]
+db_name = os.environ["MONGO_DBNAME"]
+    
+client = pymongo.MongoClient(connection_string)
+db = client[db_name]
+
+collection = db['Forum-PostsCol'] 
+
 app.secret_key = os.environ['SECRET_KEY'] 
 oauth = OAuth(app)
 
@@ -83,6 +91,8 @@ def logout():
 @app.route('/postcheck', methods=['POST'])
 def post_check():
     if 'user_data' in session and len(request.form['message'].split(' '))/session['user_data']['public_repos'] <= 5:
+        doc = {"fname": request.form['fname'],"lname": request.form['name'],"message": request.form['message']}
+        collection.insert_one(doc)
         return render_template('message.html', message='You successfully posted')
     return render_template('message.html', message='You failed to post due to too many words for your repository count')
 

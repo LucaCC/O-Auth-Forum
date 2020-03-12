@@ -80,6 +80,12 @@ def login():
 def logout():
     session.clear()
     return render_template('message.html', message='You were logged out')
+@app.route('/postcheck')
+def post_check():
+
+    if 'user_data' in session and len(request.form['message'].split(' '))/session['user_data']['public_repos'] <= 5
+        return render_template('message.html', message='You successfully posted')
+    return render_template('message.html', message='You failed to post due to too many words for your repository count')
 
 @app.route('/login/authorized')#the route should match the callback URL registered with the OAuth provider
 def authorized():

@@ -81,6 +81,13 @@ def home():
             user_not_valid.append(session['user_data']['login'])
     return render_template('home.html',valid_user=user_check, admin_secret_data=super_secret_data, admin_secret_data2=super_secret_data2, Admin=admin_check)
 
+@app.route('/')
+def post():
+    post_info = ''
+    for x in collection.find():
+        post_info += Markup('<h3>' + x['fname'] + ' ' + x['lname'] + '</h3><br>' + ' 
+    return render_template('home.html')
+
 @app.route('/login')
 def login():   
     return github.authorize(callback=url_for('authorized', _external=True, _scheme='https'))

@@ -85,8 +85,8 @@ def home():
 def post():
     post_info = ''
     for a in collection.find():
-        post_info += Markup('<h3>' + a['fname'] + ' ' + a['lname'] + '</h3><br>' + '<p>' + a['message'] + '</p>')
-    return render_template('home.html')
+        post_info += Markup('<h3>' + a['fname'] + ' ' + a['lname'] + '</h3><br>' + '<p>' + a['message'] + '</p>' + '<br><br>')
+    return render_template('home.html', post=post_info)
 
 @app.route('/login')
 def login():   

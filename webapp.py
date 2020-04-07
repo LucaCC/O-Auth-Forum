@@ -85,6 +85,7 @@ def home():
 def post():
     post_info = ''
     for a in collection.find():
+        print('hi')
         post_info += Markup('<h3>' + a['fname'] + ' ' + a['lname'] + '</h3><br>' + '<p>' + a['message'] + '</p>' + '<br><br>')
     return render_template('home.html', post=post_info)
 

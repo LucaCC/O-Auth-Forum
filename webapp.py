@@ -53,6 +53,12 @@ def home():
     super_secret_data2 = ''
     global user_valid
     global user_not_valid
+    
+    post_info = ''
+    for a in collection.find():
+        print('hi')
+        post_info += Markup('<h3>' + a['fname'] + ' ' + a['lname'] + '</h3><br>' + '<p>' + a['message'] + '</p>' + '<br><br>')
+    
     if 'user_data' in session and session['user_data']['public_repos'] > 10:
         user_check = True#pprint.pformat(session['user_data'])#format the user data nicely
         user_valid.append(session['user_data']['login'])
@@ -79,15 +85,7 @@ def home():
         admin_check = ''
         if 'user_data' in session:
             user_not_valid.append(session['user_data']['login'])
-    return render_template('home.html',valid_user=user_check, admin_secret_data=super_secret_data, admin_secret_data2=super_secret_data2, Admin=admin_check)
-
-@app.route('/')
-def post():
-    post_info = ''
-    for a in collection.find():
-        print('hi')
-        post_info += Markup('<h3>' + a['fname'] + ' ' + a['lname'] + '</h3><br>' + '<p>' + a['message'] + '</p>' + '<br><br>')
-    return render_template('home.html', post=post_info)
+    return render_template('home.html',post=post_info, valid_user=user_check, admin_secret_data=super_secret_data, admin_secret_data2=super_secret_data2, Admin=admin_check)
 
 @app.route('/login')
 def login():   

@@ -2,7 +2,14 @@ body{
   background-color: lightblue;
 }
 
+.post{
+  border-style: solid;
+  border-width: 3px;
+  margin: 3px 3px 3px 3px;
+}
+
 .eachPost{
   border-style: solid;
   border-width: 3px;
+  margin-left: 1px;
 }

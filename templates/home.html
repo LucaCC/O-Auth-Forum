@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-	  <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
+      <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
   </head>
   <body>
     <p>This is the Home page</p>
     <p>Log in to post onto this page!</p>
     {% if logged_in %}
-	  <a href="/logout">Logout</a>
+      <a href="/logout">Logout</a>
       <form action ="/postcheck" method="post">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname"><br>
@@ -16,24 +16,24 @@
         <label for="message">Post:</label><br>
         <input type="text" id="message" name="message"><br><br>
         <input type="submit" value="Submit">
-	</form> 
-	<div class="post">
-	{{post}}
-	  </div>
-	  {% else %}
-	  <a href="/login">Login</a>
-	  {% endif %}
+      </form> 
+    <div class="post">
+      {{post}}
+    </div>
+      {% else %}
+      <a href="/login">Login</a>
+      {% endif %}
     
       
-	  
-	{% if Admin == "Admin Privileges" %}  
+      
+    {% if Admin == "Admin Privileges" %}  
     <h2>{{Admin}}</h2>
       
-	<p>
+    <p>
       Logged in = {{admin_secret_data}}<br>
       Failed to Login = {{admin_secret_data2}}
     </p>
-	  {% endif %}
+      {% endif %}
         
-	 </body>
+     </body>
 </html>

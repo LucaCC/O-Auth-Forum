@@ -16,7 +16,7 @@ body{
   float: right;
 }
 
-p.eachPost{
+.paragraphPost{
   height:75px;
   width: 25%;
   overflow: scroll;

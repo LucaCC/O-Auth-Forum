@@ -13,4 +13,5 @@ body{
   border-width: 3px;
   margin: 30px 30px 30px 30px;
   width: 25%;
+  float: right;
 }

@@ -4,6 +4,7 @@
       <link rel="stylesheet" href="{{ url_for("static", filename="style.css") }}">
   </head>
   <body>
+    <div id="leftColumn>
     <p>This is the Home page</p>
     <p>Log in to post onto this page!</p>
     {% if logged_in %}
@@ -17,6 +18,7 @@
         <input type="text" id="message" name="message"><br><br>
         <input type="submit" value="Submit">
       </form> 
+    </div>
     <div class="post">
       {{post}}
     </div>

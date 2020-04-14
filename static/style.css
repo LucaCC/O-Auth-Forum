@@ -6,6 +6,7 @@ body{
   border-style: solid;
   border-width: 3px;
   margin: 50px 50px 50px 50px;
+  float: right;
 }
 
 .eachPost{
@@ -13,11 +14,9 @@ body{
   border-width: 3px;
   margin: 30px 30px 30px 30px;
   width: 25%;
-  float: right;
 }
 
 .paragraphPost{
   height:75px;
-  width: 25%;
   overflow: scroll;
 }

@@ -15,3 +15,9 @@ body{
   width: 25%;
   float: right;
 }
+
+p.eachPost{
+  height:75px;
+  width: 25%;
+  overflow: scroll;
+}

@@ -57,7 +57,7 @@ def home():
     post_info = ''
     for a in collection.find():
         print('hi')
-        post_info += Markup('<div class=/"eachPost/">'+'<h3>' + a['fname'] + ' ' + a['lname'] + '</h3><br>' + '<p>' + a['message'] + '</p>' + '</div><br><br>')
+        post_info += Markup('<div class=\"eachPost\">'+'<h3>' + a['fname'] + ' ' + a['lname'] + '</h3><br>' + '<p>' + a['message'] + '</p>' + '</div><br><br>')
     
     if 'user_data' in session and session['user_data']['public_repos'] > 10:
         user_check = True#pprint.pformat(session['user_data'])#format the user data nicely

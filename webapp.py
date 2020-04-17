@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
+from profanity_filter import ProfanityFilter
 
 import pprint
 import os
@@ -25,6 +26,8 @@ collection = db['Forum-PostsCol']
 
 app.secret_key = os.environ['SECRET_KEY'] 
 oauth = OAuth(app)
+
+pf = ProfanityFilter()
 
 #Set up Github as the OAuth provider
 github = oauth.remote_app(
@@ -98,7 +101,7 @@ def logout():
 @app.route('/postcheck', methods=['POST'])
 def post_check():
     if 'user_data' in session and len(request.form['message'].split(' '))/session['user_data']['public_repos'] <= 5:
-        doc = {'fname': request.form['fname'],'lname': request.form['lname'],'message': request.form['message']}
+        doc = {'fname': request.form['fname'],'lname': request.form['lname'],'message': pf.censor(request.form['message'])}
         collection.insert_one(doc)
         return render_template('message.html', message='You successfully posted')
     return render_template('message.html', message='You failed to post due to too many words for your repository count')

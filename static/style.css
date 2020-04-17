@@ -6,7 +6,7 @@ body{
   border-style: solid;
   border-width: 3px;
   margin: 50px 50px 50px 50px;
-  float: right;
+  //float: right;
 }
 
 .eachPost{

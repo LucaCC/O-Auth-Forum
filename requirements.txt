@@ -8,4 +8,4 @@ Flask-OAuthlib
 pymongo
 dnspython
 profanity-filter
-spacy>=2.2.0,<3.0.0
+spacy

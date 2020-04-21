@@ -9,3 +9,4 @@ pymongo
 dnspython
 profanity-filter
 spacy
+sputnik

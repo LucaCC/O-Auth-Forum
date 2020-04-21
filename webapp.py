@@ -27,7 +27,6 @@ collection = db['Forum-PostsCol']
 app.secret_key = os.environ['SECRET_KEY'] 
 oauth = OAuth(app)
 
-pf = ProfanityFilter()
 
 #Set up Github as the OAuth provider
 github = oauth.remote_app(
@@ -100,6 +99,7 @@ def logout():
     return render_template('message.html', message='You were logged out')
 @app.route('/postcheck', methods=['POST'])
 def post_check():
+    pf = ProfanityFilter()
     if 'user_data' in session and len(request.form['message'].split(' '))/session['user_data']['public_repos'] <= 5:
         doc = {'fname': request.form['fname'],'lname': request.form['lname'],'message': pf.censor(request.form['message'])}
         collection.insert_one(doc)

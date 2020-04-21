@@ -7,6 +7,10 @@ import pprint
 import os
 import pymongo
 
+import sputnik
+import spacy.about
+package = sputnik.install('spacy', spacy.about.__version__, spacy.about.__default_model__)
+
 # This code originally from https://github.com/lepture/flask-oauthlib/blob/master/example/github.py
 # Edited by P. Conrad for SPIS 2016 to add getting Client Id and Secret from
 # environment variables, so that this will work on Heroku.

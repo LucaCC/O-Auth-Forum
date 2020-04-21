@@ -6,8 +6,7 @@ from profanity_filter import ProfanityFilter
 import pprint
 import os
 import pymongo
-import en_core_web_sm
-nlp = en_core_web_sm.load()
+
 
 import sputnik
 import spacy.about

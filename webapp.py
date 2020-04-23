@@ -1,16 +1,12 @@
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
-from profanity_filter import ProfanityFilter
+from profanityfilter import ProfanityFilter
 
 import pprint
 import os
 import pymongo
 
-
-import sputnik
-import spacy.about
-package = sputnik.install('spacy', spacy.about.__version__, spacy.about.__default_model__)
 
 # This code originally from https://github.com/lepture/flask-oauthlib/blob/master/example/github.py
 # Edited by P. Conrad for SPIS 2016 to add getting Client Id and Secret from

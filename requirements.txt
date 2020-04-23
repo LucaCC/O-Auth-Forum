@@ -7,6 +7,4 @@ gunicorn
 Flask-OAuthlib
 pymongo
 dnspython
-profanity-filter
-spacy
-sputnik
+profanityfilter
